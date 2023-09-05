@@ -2,12 +2,18 @@ import discord
 import commands
 
 def run_discord_bot():
-    TOKEN = 'MTE0ODcyMjk2MDE1NzM5NzAxNA.G13KW2.oiwvt_ZJUlEOQx1yRew40oqzTYGLARGdkJL_84'
+    TOKEN = 'PUT TOKEN HERE!!!'
     client = discord.Client()
     
     @client.event
     async def on_ready():
         print(f'{client.user} is now running!')
+        print('Logged in as {0.user}'.format(client))
+        await client.change_presence(activity=discord.Game(name="Zoldrine97"))
+        
+    @client.command()
+    async def ping(ctx):
+        await ctx.send("Pong!")
         
 
     client.run(TOKEN)
